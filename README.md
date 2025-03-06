@@ -18,25 +18,32 @@ This repository contains various image processing algorithms and techniques impl
 - `P6A_Segmentation/`: Image segmentation algorithms
 - `P6B_Feature_extraction_and_descriptors/`: Feature extraction and description methods
 
-## Key Features
-
-- Image format conversion and basic operations
-- SVD-based image compression
-- Spatial domain filtering
-- Border detection algorithms
-- Affine transformations
-- Frequency domain analysis
-- Image restoration
-- Segmentation techniques
-- Feature extraction
-
 ## Requirements
 
-- Python 3.x
-- OpenCV (cv2)
-- NumPy
-- Matplotlib
-- Pillow (PIL)
+### Core Dependencies
+- Python 3.12 or higher
+- NumPy: Array operations and mathematical computations
+- OpenCV (cv2): Image processing operations
+- Matplotlib: Data visualization and image display
+- Pillow (PIL): Image processing and file format support
+
+### Machine Learning Dependencies
+- scikit-learn: Machine learning algorithms and tools
+  - KNeighborsClassifier
+  - SVC (Support Vector Classification)
+  - StandardScaler
+  - Pipeline
+  - GridSearchCV
+
+### GUI Dependencies
+- tkinter: GUI development for desktop applications
+
+### Additional Libraries
+- datetime: Date and time operations
+- os: Operating system interface
+- time: Time-related functions
+- random: Random number generation
+- typing: Type hints and annotations
 
 ## Installation
 
@@ -47,8 +54,21 @@ git clone https://github.com/yourusername/digital_image_processing.git
 
 2. Install required dependencies:
 ```bash
-pip install opencv-python numpy matplotlib pillow
+pip install opencv-python numpy matplotlib pillow scikit-learn
 ```
+
+## Key Features
+
+- Image format conversion and basic operations
+- SVD-based image compression
+- Spatial domain filtering
+- Border detection algorithms
+- Affine transformations
+- Frequency domain analysis
+- Image restoration
+- Segmentation techniques
+- Feature extraction and classification
+- GUI tools for image processing
 
 ## Usage Examples
 
@@ -72,13 +92,22 @@ image = cv2.imread('your_image.jpg', 0)
 U, S, Vt = np.linalg.svd(image, full_matrices=False)
 ```
 
-## License
+### Image Translation
+```python
+import numpy as np
+import cv2
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+# Create translation matrix
+translation_matrix = np.array([50, 0])  # Move 50 pixels horizontally
+```
 
 ## Author
 
 José Ignacio Esparza Ireta
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contributing
 

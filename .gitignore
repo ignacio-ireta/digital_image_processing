@@ -202,8 +202,6 @@ P5_Image_restoration/Lena.png
 
 P6A_Segmentation/Input_Images
 
-P6B_Feature_extraction_and_descriptors/Aguacate
-P6B_Feature_extraction_and_descriptors/Berenjena
-P6B_Feature_extraction_and_descriptors/Mandarina
-P6B_Feature_extraction_and_descriptors/Manzana
-P6B_Feature_extraction_and_descriptors/Sandía
+P6B_Feature_extraction_and_descriptors/Fruits
+
+scaffold

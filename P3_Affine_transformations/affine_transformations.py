@@ -2,6 +2,9 @@
 
 import numpy as np
 import cv2
+import os
+from pathlib import Path
+from dotenv import load_dotenv
 
 def manual_translation(image, translation_matrix):
     """
@@ -19,10 +22,6 @@ def manual_translation(image, translation_matrix):
     
     # Extract translation values
     tx, ty = int(translation_matrix[0]), int(translation_matrix[1])
-    
-    # Define the source and destination regions for the translation
-    # For positive tx: move image to the right, for negative tx: move image to the left
-    # For positive ty: move image down, for negative ty: move image up
     
     # Source region (where to copy from in the original image)
     src_x_start = max(0, -tx)
@@ -49,12 +48,31 @@ def manual_translation(image, translation_matrix):
     
     return translated_image
 
+def ensure_directory_exists(directory):
+    """Create directory if it doesn't exist."""
+    Path(directory).mkdir(parents=True, exist_ok=True)
+
 def main():
+    # Load environment variables
+    load_dotenv()
+    
+    # Get paths from environment variables
+    input_image = os.getenv('INPUT_IMAGE_PATH', 'images/imagen_prueba.jpg')
+    output_dir = os.getenv('OUTPUT_DIR', 'output')
+    
+    # Ensure paths are relative to the script location
+    script_dir = Path(__file__).parent
+    input_image_path = script_dir / input_image
+    output_dir_path = script_dir / output_dir
+    
+    # Create output directory if it doesn't exist
+    ensure_directory_exists(output_dir_path)
+    
     # Load image
-    image = cv2.imread('imagen_prueba.jpg')
+    image = cv2.imread(str(input_image_path))
     
     if image is None:
-        print("Error: Could not load the image 'imagen_prueba.jpg'")
+        print(f"Error: Could not load the image '{input_image_path}'")
         return
     
     translations = [
@@ -66,8 +84,9 @@ def main():
     
     for i, trans in enumerate(translations):
         translated_image = manual_translation(image, trans)
-        cv2.imwrite(f'imagen_trasladada_{i+1}.jpg', translated_image)
-        print(f"Imagen trasladada {i+1} guardada")
+        output_path = output_dir_path / f'imagen_trasladada_{i+1}.jpg'
+        cv2.imwrite(str(output_path), translated_image)
+        print(f"Imagen trasladada {i+1} guardada en {output_path}")
 
 if __name__ == "__main__":
     main()

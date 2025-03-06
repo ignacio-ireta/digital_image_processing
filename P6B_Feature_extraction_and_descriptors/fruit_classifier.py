@@ -334,10 +334,10 @@ def main():
     print(f"Current time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
     # Define fruit classes
-    fruit_classes = ['avocado', 'eggplant', 'tangerine', 'apple', 'watermelon']
+    fruit_classes = ['Aguacate', 'Berenjena', 'Mandarina', 'Manzana', 'Sandia']
     
     # Set paths (update with your actual path)
-    base_path = "./fruit_images"  # Replace with actual path to dataset
+    base_path = "P6B_Feature_extraction_and_descriptors\Fruits"  # Replace with actual path to dataset
     
     # Step 1: Load and split the data
     print("\nStep 1: Loading and splitting data...")

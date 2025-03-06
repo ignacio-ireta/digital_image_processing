@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
+import os
 
 # 1. Set Up the Environment - Libraries are imported above
 
@@ -367,19 +368,32 @@ def main():
     """
     Main function to execute the image processing pipeline.
     """
-    # Define image paths
+    # Define input and output directories using relative paths
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    input_dir = os.path.join(current_dir, "Input")
+    output_dir = os.path.join(current_dir, "Output")
+
+    # Create input directory if it doesn't exist
+    if not os.path.exists(input_dir):
+        os.makedirs(input_dir)
+        print(f"Created input directory at {input_dir}")
+        print("Please place your images in the Input folder and run the script again.")
+        return
+
+    # Get all image files from input directory
+    valid_extensions = ('.jpg', '.jpeg', '.png', '.bmp', '.tiff')
     image_paths = [
-        "chest_xray.jpg",
-        "cat.jpg",
-        "forest.jpg",
-        "papyrus.png"
+        os.path.join(input_dir, f) for f in os.listdir(input_dir)
+        if f.lower().endswith(valid_extensions)
     ]
-    
+
+    if not image_paths:
+        print("No valid images found in the Input folder.")
+        print("Please add some images and run the script again.")
+        return
+
     # Set kernel size for filtering
     kernel_size = 3
-    
-    # Set output directory
-    output_dir = "processed_images"
     
     # Process the images
     process_images(image_paths, kernel_size, output_dir)

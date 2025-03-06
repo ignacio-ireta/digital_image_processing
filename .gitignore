@@ -172,35 +172,23 @@ cython_debug/
 
 # Sample files
 
-P1_Spatial_properties_and_filters/cat.jpg
-P1_Spatial_properties_and_filters/chest_xray.jpg
-P1_Spatial_properties_and_filters/forest.jpg
-P1_Spatial_properties_and_filters/papyrus.png
+P1_Spatial_properties_and_filters/Input
+P1_Spatial_properties_and_filters/Output
 
-P2_Border_detection/figura6.jpg
-P2_Border_detection/figura7.jpg
-P2_Border_detection/figura8.jpg
-P2_Border_detection/figura9.jpg
+P2_Border_detection/Input
+P2_Border_detection/Output
 
-P3_Affine_transformations/imagen_prueba.jpg
+P3_Affine_transformations/Input
+P3_Affine_transformations/Output
 
-P4_Frequency_domain_filtering/1.png
-P4_Frequency_domain_filtering/2.png
-P4_Frequency_domain_filtering/3.png
-P4_Frequency_domain_filtering/4.png
-P4_Frequency_domain_filtering/5.png
+P4_Frequency_domain_filtering/Input
+P4_Frequency_domain_filtering/Output
 
-P5_Image_restoration/book_cover_blurred_image.png
-P5_Image_restoration/book_cover_operator_H.png
-P5_Image_restoration/book-cover.png
-P5_Image_restoration/boy_blurred_image.png
-P5_Image_restoration/boy_operator_H.png
-P5_Image_restoration/boy.png
-P5_Image_restoration/Lena-FiltroAdaptableMediana.png
-P5_Image_restoration/Lena-FiltroAdaptableReducciónRuido.png
-P5_Image_restoration/Lena.png
+P5_Image_restoration/Input
+P5_Image_restoration/Output
 
-P6A_Segmentation/Input_Images
+P6A_Segmentation/Input
+P6A_Segmentation/Output
 
 P6B_Feature_extraction_and_descriptors/Fruits
 
